@@ -2,6 +2,7 @@ package org.launchcode.java.demos.exercises;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArrayListPractice {
 
@@ -20,7 +21,7 @@ public class ArrayListPractice {
         String[] strArr = source.split("\\s+");//Splitting using whitespace
         //System.out.println(Arrays.toString(strArr));
         ArrayList<String> myWords = new ArrayList<String>(Arrays.asList(strArr));
-        fiveLetters(myWords);
+        wordLengthList(myWords);
     }
 
     public static Integer sumEvens (ArrayList<Integer> numbers) {
@@ -34,8 +35,17 @@ public class ArrayListPractice {
         return sum;
     }
 
-    public static void fiveLetters (ArrayList<String> words) {
+    public static void wordLengthList (ArrayList<String> words) {
 
-        for (){};
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the word length you would like displayed from the list: ");
+        int size = input.nextInt();
+
+        for (int k = 0; k < words.size(); k++) {
+            if (words.get(k).length() == size) {
+                System.out.println(words.get(k));
+            }
+        }
+        input.close();
     }
 }
