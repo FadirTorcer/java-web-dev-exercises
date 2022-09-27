@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Menu {
-    private ArrayList<String> menuList;
+    private ArrayList<MenuItem> menuList;
     private Date updated;
 
-    public Menu(ArrayList<String> menuList, Date updated) {
+    public Menu(ArrayList<MenuItem> menuList, Date updated) {
         this.menuList = menuList;
         this.updated = updated;
     }
 
-    public ArrayList<String> getMenuList() {
+    public ArrayList<MenuItem> getMenuList() {
         return menuList;
     }
 
@@ -20,11 +20,26 @@ public class Menu {
         return updated;
     }
 
-    public void setMenuList(ArrayList<String> menuList) {
+    public void setMenuList(ArrayList<MenuItem> menuList) {
         this.menuList = menuList;
     }
 
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+    public void addItem (MenuItem newItem) {
+        this.menuList.add(newItem);
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuList=" + menuList +
+                '}';
+    }
+
+    public void printMenu() {
+        for (MenuItem tastyTidbit : this.menuList) { tastyTidbit.printItem(); }
     }
 }
