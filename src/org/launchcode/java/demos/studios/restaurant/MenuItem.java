@@ -69,12 +69,7 @@ public class MenuItem {
 
     @Override
     public String toString() {
-        return "MenuItem{" +
-                "price=" + price +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                ", added=" + added +
-                '}';
+        return category + " | " + description + " | " + price;
     }
 
     public void printItem() {

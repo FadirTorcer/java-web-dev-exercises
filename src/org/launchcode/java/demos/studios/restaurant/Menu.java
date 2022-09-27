@@ -32,6 +32,10 @@ public class Menu {
         this.menuList.add(newItem);
     }
 
+    public void dropItem (MenuItem oldItem) {
+        this.menuList.remove(oldItem);
+    }
+
     @Override
     public String toString() {
         return "Menu{" +
@@ -40,6 +44,11 @@ public class Menu {
     }
 
     public void printMenu() {
-        for (MenuItem tastyTidbit : this.menuList) { tastyTidbit.printItem(); }
+        System.out.println("\n*****\nToday's Menu!\n*****");
+        for (MenuItem tastyTidbit : this.menuList) {
+            if (tastyTidbit.checkIfNew()) {System.out.print("* New Item! *");}
+            tastyTidbit.printItem();
+        }
+        System.out.println("*****");
     }
 }
