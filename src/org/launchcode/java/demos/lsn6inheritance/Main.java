@@ -10,10 +10,10 @@ public class Main {
         HouseCat oliver = new HouseCat("Oscar");
         System.out.println(oliver.getWeight());
 
-        Cat plainCat = new Cat(8.6);
+        //Cat plainCat = new Cat(8.6);
         HouseCat cheshireCat = new HouseCat("Cheshire", 12);
 
-        System.out.println(plainCat.noise()); // prints "Meeeeeeooooowww!"
+        //System.out.println(plainCat.noise()); // prints "Meeeeeeooooowww!"
         System.out.println(cheshireCat.noise()); // prints "Hello, my name is Cheshire!"
     }
 }
