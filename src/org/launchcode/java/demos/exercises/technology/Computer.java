@@ -35,8 +35,9 @@ public class Computer {
         this.operatingSystem = operatingSystem;
     }
 ///// begin sketched out methods
-    public double[] boot() {
-        return new double[]{storageSize, cpuSpeed};
+    public void overClock() {
+        double newSpeed = cpuSpeed * 1.3;
+        this.setCpuSpeed(newSpeed);
     }
 
     public void update(String newOS) {
