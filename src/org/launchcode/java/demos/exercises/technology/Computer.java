@@ -1,6 +1,6 @@
 package org.launchcode.java.demos.exercises.technology;
 
-public class Computer {
+public class Computer extends AbstractEntity{
     private double storageSize;
     private double cpuSpeed;
     private String operatingSystem;
