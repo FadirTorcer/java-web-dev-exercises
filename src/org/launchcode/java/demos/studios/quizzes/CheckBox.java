@@ -1,5 +1,6 @@
 package org.launchcode.java.demos.studios.quizzes;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import static java.lang.Character.toLowerCase;
@@ -12,7 +13,9 @@ public class CheckBox extends Question{
     public CheckBox(int pointValue, String text, String[] answers, char[] answerKey) {
         super(pointValue, text);
         this.answers = answers;
-        this.answerKey = answerKey;
+        for (int i = 0; i < answerKey.length; i++) {
+            this.answerKey[i] = toLowerCase(answerKey[i]);
+        }
     }
 
     @Override
@@ -25,21 +28,28 @@ public class CheckBox extends Question{
     }
 
     public void correctAnswer (char[] choice) {
-        //int numberCorrect = 0;
-        /*if (choice[i] == answerKey[i]) {
-            numberCorrect++;
+        int numberCorrect = 0;
+        Arrays.sort(choice);
+        Arrays.sort(answerKey);
+        for (int i = 0; i < choice.length; i++) {
+            if (Arrays.binarySearch(answerKey, choice[i]) >= 0) {
+                numberCorrect++;
+            }
         }
-        */
-        //setPointValue(numberCorrect);
+        setPointValue(numberCorrect);
     }
 
     @Override
     public char[] getAnswers() {
         char[] selection = {};
         Scanner input = new Scanner(System.in);
-        System.out.println("Please select which option you believe is correct, by entering the corresponding letter.");
+        System.out.println("Please select which options you believe are correct, by entering the corresponding letters.\n" +
+                "For instance, if 'A', 'C' and 'D' are correct—enter 'ACD'.");
         String response = input.nextLine();
-        selection[0] = toLowerCase(response.charAt(0));
+        selection = response.toCharArray();
+        for (int i = 0; i < selection.length; i++) {
+            toLowerCase(selection[i]);
+        }
         return selection;
     }
 }
